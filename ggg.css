@@ -54,13 +54,26 @@ body::after {
   color: #fff;
   padding: 20px 40px;
   display: flex;
-  justify-content: space-between; /* Already good */
+  justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 10px rgba(0,0,0,0.15);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
+.header {
+  background: #001f3f;
+  color: #fff;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between; /* Ensure spacing between logo and burger */
+  align-items: center;            /* Vertically center everything */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
 
 
 .header .logo {
@@ -377,6 +390,16 @@ section p, section li {
   gap: 5px;
   z-index: 1100;
 }
+.burger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 1100;
+  margin-left: auto;        /* Pushes it to the right */
+  align-self: center;       /* Vertically aligns with the logo */
+}
+
 
 .burger .bar {
   width: 25px;
@@ -388,6 +411,13 @@ section p, section li {
 
 /* Responsive Nav */
 @media (max-width: 768px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+  }
+
   .burger {
     display: flex;
   }
@@ -405,12 +435,9 @@ section p, section li {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   }
 
-  .navbar a {
-    margin: 10px 0;
-  }
-
   .navbar.show {
     display: flex;
   }
 }
+
 
