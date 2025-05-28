@@ -7,6 +7,12 @@
   scroll-behavior: smooth;
 }
 
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
 body {
   background: linear-gradient(-45deg, #0077b6, #00b4d8, #90e0ef, #caf0f8);
   background-size: 400% 400%;
@@ -15,7 +21,6 @@ body {
   line-height: 1.6;
   text-align: center;
   position: relative;
-  overflow-x: hidden;
 }
 
 body::before, body::after {
@@ -50,7 +55,7 @@ body::after {
 .header {
   background: #001f3f;
   color: #fff;
-  padding: 20px 40px;
+  padding: 20px 5vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -58,6 +63,7 @@ body::after {
   position: sticky;
   top: 0;
   z-index: 1000;
+  flex-wrap: wrap;
 }
 
 .header .logo {
@@ -72,9 +78,16 @@ body::after {
   transform: scale(1.1);
 }
 
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
 .navbar a {
   color: #fff;
-  margin: 0 15px;
+  margin: 10px;
   text-decoration: none;
   font-weight: 600;
   position: relative;
@@ -103,7 +116,7 @@ body::after {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 100px 20px 80px;
+  padding: 100px 5vw 80px;
   background: linear-gradient(to bottom right, #0077b6, #90e0ef);
   color: #fff;
   animation: fadeIn 1.5s ease-in;
@@ -161,9 +174,10 @@ body::after {
 
 /* General Section Styling */
 section {
+  width: 90%;
   max-width: 900px;
   margin: 60px auto;
-  padding: 40px 20px;
+  padding: 40px 5vw;
   background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.1);
@@ -232,6 +246,7 @@ section p, section li {
   justify-content: center;
   gap: 25px;
   margin-top: 30px;
+  flex-wrap: wrap;
 }
 
 .social-icons a {
@@ -245,33 +260,6 @@ section p, section li {
   transform: scale(1.2);
   color: #023e8a;
 }
-.mobile-number {
-  margin-top: 30px;
-  text-align: center;
-}
-
-.mobile-number a {
-  display: inline-block;
-  background-color: #0077b6;
-  color: #fff;
-  padding: 12px 24px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.2rem;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-.mobile-number a i {
-  margin-right: 10px;
-}
-
-.mobile-number a:hover {
-  background-color: #023e8a;
-  transform: scale(1.05);
-}
-
 
 @keyframes gradientBG {
   0% { background-position: 0% 50%; }
@@ -279,153 +267,41 @@ section p, section li {
   100% { background-position: 0% 50%; }
 }
 
-/* Responsive Styling */
-@media (max-width: 1024px), (max-width: 768px), (max-width: 480px), (max-width: 375px), (max-width: 320px) {
-  .header {
-    flex-direction: column;
-    text-align: center;
-    padding: 10px 15px;
-  }
+/* Responsive already present – no change required here unless specific bug found */
+/* Burger Button Styling */
+.burger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
 
-  .header .logo {
-    font-size: 1.3rem;
+.burger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  .burger {
+    display: flex;
   }
 
   .navbar {
-    flex-direction: column;
-    align-items: center;
     display: none;
+    flex-direction: column;
+    background-color: #001f3f;
     width: 100%;
+    padding: 20px 0;
   }
 
   .navbar.show {
     display: flex;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    right: 0;
-    background-color: #001f3f;
-    padding: 20px 0;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   }
 
   .navbar a {
-    display: block;
     margin: 10px 0;
   }
-
-  .burger {
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-    z-index: 1100;
-    margin-left: auto;
-    align-self: center;
-  }
-
-  .burger .bar {
-    width: 25px;
-    height: 3px;
-    background-color: #fff;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-  }
-
-  .home {
-    padding: 80px 20px 60px;
-  }
-
-  .home-img img {
-    width: 120px;
-    height: 120px;
-  }
-
-  .home-content h1 {
-    font-size: 1.8rem;
-  }
-
-  .home-content p {
-    font-size: 1rem;
-  }
-
-  .resume-button {
-    padding: 8px 20px;
-    font-size: 0.9rem;
-  }
-
-  section {
-    padding: 30px 15px;
-    margin: 40px 15px;
-  }
-
-  section h2 {
-    font-size: 1.8rem;
-  }
-
-  section p, section li {
-    font-size: 1.05rem;
-  }
-
-  .services li {
-    padding: 15px;
-  }
-
-  .social-icons {
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 25px;
-  }
-
-  .social-icons a {
-    font-size: 1.4rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .mobile-number a {
-    font-size: 1rem;
-    padding: 10px 18px;
-  }
-
-  .mobile-number {
-    margin-top: 20px;
-  }
-}
-
-.navbar {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease-in-out;
-}
-
-.navbar.show {
-  display: flex;
-  max-height: 500px; /* arbitrary max-height */
-}
-body.dark-mode {
-  background: #0a0a0a;
-  color: #e0e0e0;
-}
-
-body.dark-mode section {
-  background: #1a1a1a;
-  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.1);
-}
-
-body.dark-mode .header {
-  background: #121212;
-}
-a:focus, button:focus {
-  outline: 2px dashed #ffd60a;
-  outline-offset: 4px;
-}
-section:hover {
-  transform: scale(1.005);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
-}
-.resume-button:hover {
-  background-color: #ffc300;
-  transform: scale(1.08);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
