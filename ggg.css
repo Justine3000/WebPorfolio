@@ -245,6 +245,33 @@ section p, section li {
   transform: scale(1.2);
   color: #023e8a;
 }
+.mobile-number {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.mobile-number a {
+  display: inline-block;
+  background-color: #0077b6;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.mobile-number a i {
+  margin-right: 10px;
+}
+
+.mobile-number a:hover {
+  background-color: #023e8a;
+  transform: scale(1.05);
+}
+
 
 @keyframes gradientBG {
   0% { background-position: 0% 50%; }
@@ -354,3 +381,15 @@ section p, section li {
     font-size: 1.4rem;
   }
 }
+
+@media (max-width: 480px) {
+  .mobile-number a {
+    font-size: 1rem;
+    padding: 10px 18px;
+  }
+
+  .mobile-number {
+    margin-top: 20px;
+  }
+}
+
