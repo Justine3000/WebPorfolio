@@ -393,3 +393,39 @@ section p, section li {
   }
 }
 
+.navbar {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out;
+}
+
+.navbar.show {
+  display: flex;
+  max-height: 500px; /* arbitrary max-height */
+}
+body.dark-mode {
+  background: #0a0a0a;
+  color: #e0e0e0;
+}
+
+body.dark-mode section {
+  background: #1a1a1a;
+  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .header {
+  background: #121212;
+}
+a:focus, button:focus {
+  outline: 2px dashed #ffd60a;
+  outline-offset: 4px;
+}
+section:hover {
+  transform: scale(1.005);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+}
+.resume-button:hover {
+  background-color: #ffc300;
+  transform: scale(1.08);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
