@@ -305,3 +305,96 @@ section p, section li {
     margin: 10px 0;
   }
 }
+/* Enhanced Contact Section */
+/* Consistent Contact Section */
+.contact {
+  width: 90%;
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 40px 5vw;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.contact:hover {
+  transform: scale(1.01);
+}
+
+.contact h2 {
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+  color: #0077b6;
+  border-bottom: 3px solid #90e0ef;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+n-bottom: 30px;
+}
+
+.contact.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Icon Enhancements */
+.social-icons a {
+  background: rgba(255, 255, 255, 0.3);
+  padding: 15px;
+  border-radius: 50%;
+  transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+  color: #0077b6;
+}
+
+.social-icons a:hover {
+  background-color: #fff;
+  color: #023e8a;
+  transform: scale(1.3) rotate(5deg);
+  box-shadow: 0 0 15px rgba(0, 119, 182, 0.5);
+}
+
+/* Phone Icon Pulse */
+.mobile-number a {
+  font-size: 1.2rem;
+  color: #001f3f;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 30px;
+  background-color: #ffd60a;
+  padding: 14px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 0 0 rgba(255, 214, 10, 0.4);
+  animation: pulseButton 2s infinite;
+  transition: background-color 0.3s;
+}
+
+.mobile-number a:hover {
+  background-color: #ffc300;
+  transform: scale(1.05);
+}
+
+@keyframes pulseButton {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 214, 10, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(255, 214, 10, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 214, 10, 0);
+  }
+}
