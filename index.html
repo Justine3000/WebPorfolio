@@ -132,36 +132,36 @@
     });
   </script>
   <script>
-  const typingElement = document.querySelector('.typing');
-  const phrases = [
-    "I'm Justine Bilog",
-  ];
+  const typingText = document.querySelector(".typing");
+const words = ["I'm Justine Bilog"];
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
 
-  let currentPhraseIndex = 0;
-  let currentCharIndex = 0;
-  let isDeleting = false;
-
-  function type() {
-    const currentPhrase = phrases[currentPhraseIndex];
-    const visibleText = currentPhrase.slice(0, currentCharIndex);
-    typingElement.textContent = visibleText;
-
-    if (!isDeleting && currentCharIndex < currentPhrase.length) {
-      currentCharIndex++;
-      setTimeout(type, 100);
-    } else if (isDeleting && currentCharIndex > 0) {
-      currentCharIndex--;
-      setTimeout(type, 50);
-    } else {
-      isDeleting = !isDeleting;
-      if (!isDeleting) {
-        currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
-      }
-      setTimeout(type, 1000);
-    }
+function typeEffect() {
+  const currentWord = words[wordIndex];
+  if (isDeleting) {
+    charIndex--;
+  } else {
+    charIndex++;
   }
 
-  type();
+  typingText.textContent = currentWord.substring(0, charIndex);
+
+  let delay = isDeleting ? 80 : 150;
+
+  if (!isDeleting && charIndex === currentWord.length) {
+    delay = 1000;
+    isDeleting = true;
+  } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+  }
+
+  setTimeout(typeEffect, delay);
+}
+
+document.addEventListener("DOMContentLoaded", typeEffect);
+
 </script>
 
 </body>
